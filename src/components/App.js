@@ -13,9 +13,19 @@ class App extends React.Component {
     render(){
       const {posts} = this.props;
       return (
-        <ul>
-          {posts.map(post => <li key={post._id}>{post.blog}</li>)}
-        </ul>
+        <div>
+          {posts.map(post =>
+            <div key={post._id}>
+              <header>
+                <h1>{post.title}</h1>
+                <h2>{post.name}</h2>
+              </header>
+              <article>
+                <p>{post.blog}</p>
+              </article>
+            </div>
+          )}
+        </div>
       );
     }
 }

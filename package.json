@@ -16,8 +16,7 @@
   },
   "scripts": {
     "build": "webpack",
-    "watch": "webpack-dev-server --watch",
-    "start": "node src/index.js"
+    "start": "webpack-dev-server --watch"
   },
   "dependencies": {
     "react": "^15.6.1",
