@@ -1,0 +1,17 @@
+{
+  "name": "from-scratch",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "devDependencies": {
+    "webpack": "^3.4.1"
+  },
+  "scripts": {
+    "build": "webpack",
+    "watch": "webpack --watch",
+    "start": "node src/index.js"
+  },
+  "dependencies": {
+    "redux": "^3.7.2"
+  }
+}
