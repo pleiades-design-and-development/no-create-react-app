@@ -1,18 +1,23 @@
 import React from "react";
 import {connect} from "react-redux";
-import {increment, decrement} from "../actions/actions";
+import {getPosts} from "../actions/actions";
+
+const URL = "https://tiny-lasagna-server.herokuapp.com/collections/blogger/";
 
 class App extends React.Component {
+    componentDidMount() {
+      const {dispatch} = this.props;
+      dispatch(getPosts());
+    }
+
     render(){
-      const {dispatch, count} = this.props;
+      const {posts} = this.props;
       return (
-        <div>
-          <button onClick={() => dispatch(decrement())}>-</button>
-          <span>{count}</span>
-          <button onClick={() => dispatch(increment())}>+</button>
-        </div>
+        <ul>
+          {posts.map(post => <li key={post._id}>{post.blog}</li>)}
+        </ul>
       );
     }
 }
 
-export default connect(count => ({count}))(App);
+export default connect(({posts}) => ({posts}))(App);

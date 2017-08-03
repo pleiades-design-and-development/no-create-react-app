@@ -1,11 +1,18 @@
-export default (state, action) => {
-  state = typeof state === "undefined" ? 0 : state;
-
-  switch (action.type) {
-    case "INCREMENT":
-      return state + 1;
-    case "DECREMENT":
-      return state - 1;
+const initialState = {
+    posts: []
+}
+export default (state = initialState, {type, waiting, posts}) => {
+  switch (type) {
+    case "LOADING":
+      return {
+        ...state,
+        waiting
+      };
+    case "SET_POSTS":
+      return {
+        ...state,
+        posts
+      }
     default:
       return state;
   }

@@ -2,6 +2,7 @@ const path = require("path");
 const webpack = require("webpack");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const TransformReactJSX = require("babel-plugin-transform-react-jsx");
+const SyntaxAsyncFunctions = require("babel-plugin-syntax-async-functions");
 
 module.exports = {
   entry: "./src/index.js",
@@ -28,8 +29,11 @@ module.exports = {
         use: {
           loader: 'babel-loader',
           options: {
-            presets: ['env'],
-            plugins: [TransformReactJSX]
+            presets: ["stage-0"],
+            plugins: [
+              TransformReactJSX,
+              SyntaxAsyncFunctions
+            ]
           }
         }
       }
