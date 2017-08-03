@@ -1,6 +1,7 @@
 const path = require("path");
 const webpack = require("webpack");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
+const TransformReactJSX = require("babel-plugin-transform-react-jsx");
 
 module.exports = {
   entry: "./src/index.js",
@@ -11,9 +12,6 @@ module.exports = {
   devtool: 'inline-source-map',
   devServer: {
     contentBase: './dist',
-    historyApiFallback: {
-      index: 'index.html'
-    },
     hot: true
   },
   plugins: [
@@ -31,7 +29,7 @@ module.exports = {
           loader: 'babel-loader',
           options: {
             presets: ['env'],
-            plugins: [require("babel-plugin-transform-react-jsx")]
+            plugins: [TransformReactJSX]
           }
         }
       }

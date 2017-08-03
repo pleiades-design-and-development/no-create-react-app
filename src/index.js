@@ -1,18 +1,21 @@
-import {createStore} from "redux";
 import ReactDOM from "react-dom";
 import React from "react";
+import App from "./components/App";
+import {createStore} from "redux";
+import {Provider} from "react-redux";
 import reducer from "./reducers/reducer";
-import {increment, decrement} from "./actions/actions";
 
-const store = createStore(reducer);
+const store = createStore(
+  reducer,
+  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+);
 
-class App extends React.Component {
-    render(){
-      return <div>Test</div>;
-    }
-}
-
-ReactDOM.render(<App />, document.querySelector("body"));
+ReactDOM.render(
+  <Provider store={store}>
+    <App />
+  </Provider>,
+  document.querySelector("body")
+);
 
 
 // elements
